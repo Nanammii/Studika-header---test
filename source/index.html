@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html class="page" lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Студика - справочник учебных заведений России</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page__body">
+<header class="main-header">
+  <div class="main-header__wrapper">
+    <nav class="navigation">
+      <a class="navigation__logo" href="index.html">
+        <img class="navigation__image" src="img/logo.svg" width="88" height="32" alt="Логотип сайта Студика.">
+      </a>
+      <button class="navigation__toggle navigation__toggle--closed" type="button">
+        <span class="visually-hidden">Открыть меню</span>
+      </button>
+      <button class="navigation__slider-button navigation__slider-button--active navigation__slider-button--prev" type="button">
+        <span class="visually-hidden">Предыдущее</span>
+      </button>
+      <button class="navigation__slider-button navigation__slider-button--next" type="button">
+        <span class="visually-hidden">Следующее</span>
+      </button>
+      <ul class="navigation__list user-list user-list--visible">
+        <li class="user-list__item user-list__item--visible">
+          <a class="user-list__link user-list__link--city" href="#">
+            <svg class="user-list__icon user-list__icon--city" width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.554043 10.5638L14.9471 0.594936C15.4542 0.243753 16.0659 0.718264 15.8519 1.29672L9.77637 17.717C9.57036 18.2738 8.81349 18.323 8.61362 17.7927L6.68389 12.6718C6.60699 12.4677 6.42672 12.3279 6.20994 12.3042L0.770016 11.7088C0.206593 11.6471 0.0660077 10.9018 0.554043 10.5638Z"/>
+            </svg>
+            <span>Москва</span>
+          </a>
+          <div class="user-list__popover popover popover--city popover--active">
+            <div class="popover__input-wrap">
+              <label class="popover__label visually-hidden" for="search-city">Выбор города</label>
+              <input class="popover__input" type="text" name="search-city" id="search-city" placeholder="Регион, город, населенный пункт">
+            </div>
+            <div class="popover__button-wrap">
+              <button class="popover__button-city button">
+                <span class="popover__city-name">Москва</span>
+                <svg class="popover__icon-del" width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-label="Удалить город" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z"/>
+                </svg>
+              </button>
+            </div>
+            <ul class="popover__list" id="city-list">
+              <li class="popover__item">Московская область</li>
+              <li class="popover__item">Вся Россия</li>
+              <li class="popover__item">Санкт-Петербург</li>
+              <li class="popover__item">Новосибирск</li>
+              <li class="popover__item">Екатеринбург</li>
+            </ul>
+            <button class="popover__button button" type="button">сохранить</button>
+          </div>
+        </li>
+        <li class="user-list__item user-list__item--search user-list__item--visible">
+          <label class="user-list__label visually-hidden" for="search">Поиск</label>
+          <input class="user-list__input" type="text" name="search" id="search" placeholder="Учебное заведение, специальность или профессия">
+        </li>
+        <li class="user-list__item user-list__item--favorites">
+          <a class="user-list__link" href="#" aria-label="Избранное">
+            <svg class="user-list__icon" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7.5 14.0125L6.4125 13.0225C2.55 9.52 0 7.21 0 4.375C0 2.065 1.815 0.25 4.125 0.25C5.43 0.25 6.6825 0.8575 7.5 1.8175C8.3175 0.8575 9.57 0.25 10.875 0.25C13.185 0.25 15 2.065 15 4.375C15 7.21 12.45 9.52 8.5875 13.03L7.5 14.0125Z"/>
+            </svg>
+            <span class="user-list__number-like">1</span>
+          </a>
+        </li>
+        <li class="user-list__item user-list__item--visible">
+          <a class="user-list__link user-list__link--user" href="#">
+            <span class="user-list__user-name">Екатерина</span>
+            <img class="user-list__image-user" src="img/avatar.jpg" width="32" height="32" alt="Фотография пользователя">
+          </a>
+        </li>
+      </ul>
+      <ul class="navigation__list cite-list cite-list--visible">
+        <li class="cite-list__item" id="first">
+          <a class="cite-list__link cite-list__link--current">Вузы</a>
+        </li>
+        <li class="cite-list__item">
+          <a class="cite-list__link">Колледжи</a>
+        </li>
+        <li class="cite-list__item">
+          <a class="cite-list__link">Техникумы</a>
+        </li>
+        <li class="cite-list__item">
+          <a class="cite-list__link">Училища</a>
+        </li>
+        <li class="cite-list__item cite-list__item--branch">
+          <a class="cite-list__link">Специальности</a>
+          <ul class="cite-list__branch">
+            <li class="cite-list__item">
+              <a class="cite-list__link" href="#">Высшее</a>
+            </li>
+            <li class="cite-list__item">
+              <a class="cite-list__link" href="#">Среднее</a>
+            </li>
+          </ul>
+        </li>
+        <li class="cite-list__item">
+          <a class="cite-list__link">Профессии</a>
+        </li>
+        <li class="cite-list__item">
+          <a class="cite-list__link">Отзывы</a>
+        </li>
+        <li class="cite-list__item">
+          <a class="cite-list__link">Учебным заведениям</a>
+        </li>
+        <li class="cite-list__item cite-list__item--last">
+          <a class="cite-list__link">Тест на профориентацию</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<script src="js/script.js"></script>
+</body>
+</html>

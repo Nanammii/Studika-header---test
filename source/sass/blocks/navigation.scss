@@ -1,0 +1,123 @@
+.navigation {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $desktop-width) {
+    display: grid;
+    grid-template-columns: 104px 1fr;
+  }
+}
+
+.navigation__logo {
+  padding: 16px 0;
+  text-align: center;
+
+  @media (min-width: $desktop-width) {
+    grid-column: 1/2;
+    padding: 24px 0;
+    margin-right: 16px;
+  }
+}
+
+.navigation__toggle {
+  position: absolute;
+  top: 16px;
+  left: 8px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+
+  @media (min-width: $desktop-width) {
+    display: none;
+  }
+
+  &--closed {
+    &::before {
+      content: "";
+      position: absolute;
+      top: 8px;
+      left: 6px;
+      width: 20px;
+      height: 2px;
+      background-color: #222222;
+      box-shadow: 0 7px 0 0 #222222, 0 14px 0 0 #222222;
+    }
+
+    &:active::before {
+      background-color: fade-in(#222222, 0.3);
+      box-shadow: 0 7px 0 0 fade-in(#222222, 0.3),
+      0 14px 0 0 fade-in(#222222, 0.3);
+    }
+  }
+
+  &--opened {
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 16px;
+      left: 6px;
+      width: 20px;
+      height: 2px;
+      background-color: #222222;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+      box-shadow: none;
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+
+    &:active::before,
+    &:active::after {
+      background-color: fade-in(#222222, 0.3);
+    }
+  }
+}
+
+.navigation__slider-button {
+  display: none;
+  position: absolute;
+  bottom: -4px;
+  right: 0;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: $white-color url("../img/icons/arrow-right.svg") no-repeat center;
+  cursor: pointer;
+
+  &--prev {
+    transform: rotate(180deg);
+    left: 0;
+  }
+
+  @media (min-width: $desktop-width) {
+    display: block;
+
+    &--active {
+      display: none;
+    }
+  }
+}
+
+.navigation__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &--visible {
+    display: none;
+  }
+
+  @media (min-width: $desktop-width) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
