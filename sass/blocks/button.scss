@@ -1,0 +1,28 @@
+.button {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid #d3d3d3;
+  border-radius: 65px;
+  box-sizing: border-box;
+  color: $white-color;
+  background-color: #ffffff;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #dddddd;
+  }
+
+  &:active {
+    color: rgba(255, 255, 255, 0.3);
+    background-color: #d3d3d3;
+  }
+
+  &:disabled {
+    color: $white-color;
+    background-color: #000000;
+  }
+}
