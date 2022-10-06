@@ -68,27 +68,37 @@ function readText(file, callback) {
 // //usage:
 readText('../data/russian-cities.json', function (text) {
   let dataList = JSON.parse(text);
-  console.log(dataList);
-  return dataList;
-});
 
-const showList = (dataList) => {
   cityList.innerHTML = '';
   dataList.filter((item) => {
-    return (item.name.toLowerCase().includes(searchResults));
-  });
-  dataList.forEach((e) => {
-    const li = document.createElement('li');
-    li.innerHTML = `<a class="popover__link"></a> {e.name}`;
-    cityList.appendChild(li);
-  });
-}
+      return (item.name.toLowerCase().includes(searchResults));
+    });
+    dataList.forEach((e) => {
+      const li = document.createElement('li');
+      li.innerHTML = `<a class="popover__link"></a> {e.name}`;
+      cityList.appendChild(li);
+    });
 
-showList();
+});
+
+// const showList = () => {
+//   cityList.innerHTML = '';
+//   debugger
+//   data.filter((item) => {
+//     return (item.name.toLowerCase().includes(searchResults));
+//   });
+//   data.forEach((e) => {
+//     const li = document.createElement('li');
+//     li.innerHTML = `<a class="popover__link"></a> {e.name}`;
+//     cityList.appendChild(li);
+//   });
+// }
+
+// showList();
 
 searchCity.addEventListener('input', (event) => {
   searchResults = event.target.value.toLowerCase();
-  showList();
+  readText();
 });
 // readTextFile("../russian-cities.json", function(text){
 //   let data = JSON.parse(text);
