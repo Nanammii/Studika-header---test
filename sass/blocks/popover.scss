@@ -61,7 +61,8 @@
   overflow-y: scroll;
 }
 
-.popover__item {
+.popover__link {
+  display: block;
   padding: 8px 23px 10px;
 
   &:hover {

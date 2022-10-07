@@ -56,7 +56,7 @@ let searchResults = '';
 function readText(file, callback) {
   let rawFile = new XMLHttpRequest();
   rawFile.overrideMimeType('application/json');
-  rawFile.open('get', file, true);
+  rawFile.open('GET', file, true);
   rawFile.onreadystatechange = function () {
     if (rawFile.readyState === 4 && rawFile.status == '200') {
       callback(rawFile.responseText);
@@ -66,55 +66,31 @@ function readText(file, callback) {
 }
 
 // //usage:
-readText('../data/russian-cities.json', function (text) {
-  let dataList = JSON.parse(text);
+const showList = () => {
+  readText('../data/russian-cities.json', function (text) {
+    let dataList = JSON.parse(text);
+    console.log(dataList);
 
-  cityList.innerHTML = '';
-  dataList.filter((item) => {
-      return (item.name.toLowerCase().includes(searchResults));
-    });
-    dataList.forEach((e) => {
-      const li = document.createElement('li');
-      li.innerHTML = `<a class="popover__link"></a> {e.name}`;
-      cityList.appendChild(li);
-    });
+    cityList.innerHTML = '';
+    dataList
+      .filter((item) => {
+        return (
+          item.name.toLowerCase().includes(searchResults) ||
+          item.subject.toLowerCase().includes(searchResults)
+        );
+      })
+      .forEach((e) => {
+        const li = document.createElement('li');
+        li.classList.add('popover-item');
+        li.innerHTML = `<a class="popover__link">${e.name}</a><span class="popover__subject">${e.subject}</span>`;
+        cityList.appendChild(li);
+      });
+  });
+};
 
-});
-
-// const showList = () => {
-//   cityList.innerHTML = '';
-//   debugger
-//   data.filter((item) => {
-//     return (item.name.toLowerCase().includes(searchResults));
-//   });
-//   data.forEach((e) => {
-//     const li = document.createElement('li');
-//     li.innerHTML = `<a class="popover__link"></a> {e.name}`;
-//     cityList.appendChild(li);
-//   });
-// }
-
-// showList();
+showList();
 
 searchCity.addEventListener('input', (event) => {
-  searchResults = event.target.value.toLowerCase();
-  readText();
+  searchResults = event.target.value.toLowerCase().trim();
+  showList();
 });
-// readTextFile("../russian-cities.json", function(text){
-//   let data = JSON.parse(text);
-//   console.log(data);
-// });
-
-// const searchCities = async searchText => {
-//   const res = await fetch('../data/russian-cities.json');
-//   const cities = await res.json();
-//
-//   let matches = cities.filter(city => {
-//     const regex = new RegExp(`^${searchText}`);
-//     return city.name.match(regex) || city.abbr.match(regex);
-//   });
-//
-//   console.log(matches);
-// };
-//
-// searchCity.addEventListener('input', () => searchCities(searchCity.value));
