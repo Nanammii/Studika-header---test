@@ -1,5 +1,8 @@
 .popover {
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   border-radius: 10px;
   background-color: #fbfbfb;
   box-shadow: 0 7px 38px 0 rgba(44, 62, 106, 0.25);
@@ -7,7 +10,7 @@
 
   &--city {
     width: 384px;
-    min-height: 416px;
+    max-height: 416px;
     margin-top: 16px;
   }
 
@@ -17,7 +20,16 @@
 }
 
 .popover__input-wrap {
-  padding: 24px 16px 16px;
+  padding: 24px 16px 0;
+}
+
+.popover__input {
+  width: 100%;
+  padding: 14px 25px 12px;
+  border: 2px solid #ABC8EA;
+  border-radius: 100px;
+  box-sizing: border-box;
+  font-family: inherit;
 }
 
 .popover__button-wrap {
@@ -25,7 +37,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  padding: 0 16px 16px;
+  padding: 16px;
   color: #ffffff;
 
   &::after {
@@ -61,13 +73,16 @@
   overflow-y: scroll;
 }
 
-.popover__link {
-  display: block;
-  padding: 8px 23px 10px;
+.popover__item {
+  padding: 8px 24px 10px;
 
   &:hover {
     background-color: #f1f1f1;
   }
+}
+
+.popover__link {
+  display: block;
 }
 
 .popover__button {

@@ -81,7 +81,7 @@ const showList = () => {
       })
       .forEach((e) => {
         const li = document.createElement('li');
-        li.classList.add('popover-item');
+        li.classList.add('popover__item');
         li.innerHTML = `<a class="popover__link">${e.name}</a><span class="popover__subject">${e.subject}</span>`;
         cityList.appendChild(li);
       });
