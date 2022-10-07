@@ -416,10 +416,11 @@ img {
   overflow-y: scroll;
 }
 
-.popover__item {
+.popover__link {
+  display: block;
   padding: 8px 23px 10px;
 }
-.popover__item:hover {
+.popover__link:hover {
   background-color: #f1f1f1;
 }
 
