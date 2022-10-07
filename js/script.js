@@ -65,7 +65,7 @@ function readText(file, callback) {
   rawFile.send(null);
 }
 
-// //usage:
+//usage:
 const showList = () => {
   readText('../data/russian-cities.json', function (text) {
     let dataList = JSON.parse(text);
